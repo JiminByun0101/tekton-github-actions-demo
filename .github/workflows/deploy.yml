@@ -23,9 +23,9 @@ jobs:
 
       - name: Install Tekton CLI
         run: |
-          curl -LO https://github.com/tektoncd/cli/releases/latest/download/tkn_$(uname -s)_$(uname -m).tar.gz
-          tar xvzf tkn_$(uname -s)_$(uname -m).tar.gz -C /usr/local/bin tkn
-          chmod +x /usr/local/bin/tkn        
+          curl -LO https://github.com/tektoncd/cli/releases/latest/download/tkn_linux_amd64.tar.gz
+          tar xvzf tkn_linux_amd64.tar.gz -C /usr/local/bin tkn
+          chmod +x /usr/local/bin/tkn
 
       - name: Start Tekton Pipeline
         run: |

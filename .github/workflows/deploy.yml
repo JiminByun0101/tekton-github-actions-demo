@@ -15,11 +15,17 @@ jobs:
       - name: Install OpenShift CLI
         run: |
           curl -L https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/linux/oc.tar.gz | tar -xz
-          sudo mv oc /usr/local/bin/
+          sudo mv oc /usr/local/bin/  
 
       - name: Login to OpenShift
         run: |
           oc login ${{ secrets.OPENSHIFT_API_URL }} --token=${{ secrets.OPENSHIFT_TOKEN }} --insecure-skip-tls-verify
+
+      - name: Install Tekton CLI
+        run: |
+          curl -LO https://github.com/tektoncd/cli/releases/latest/download/tkn_$(uname -s)_$(uname -m).tar.gz
+          tar xvzf tkn_$(uname -s)_$(uname -m).tar.gz -C /usr/local/bin tkn
+          chmod +x /usr/local/bin/tkn        
 
       - name: Start Tekton Pipeline
         run: |

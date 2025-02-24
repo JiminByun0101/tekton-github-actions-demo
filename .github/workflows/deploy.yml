@@ -23,4 +23,4 @@ jobs:
 
       - name: Start Tekton Pipeline
         run: |
-          tkn pipeline start simple-pipeline -n jiminbyun-dev
+          tkn pipeline start new-pipeline -n jiminbyun-dev
